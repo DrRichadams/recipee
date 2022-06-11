@@ -12,6 +12,9 @@ import HeaderButton from "./components/HeaderButton"
 import * as Font from "expo-font"
 import * as SplashScreen from 'expo-splash-screen';
 
+import Login from "./screens/Login";
+import RecipesScreen from "./screens/RecipesScreen";
+
 export default function App() {
   /////////////////////// TRYING THE EXPO SPLASH SCREEN /////////////////////////
   const [appIsReady, setAppIsReady] = useState(false);
@@ -39,9 +42,24 @@ export default function App() {
   const Stack = createNativeStackNavigator();
   const Tab = createBottomTabNavigator();
 
+  const RecipesTabs = () => {
+    return(
+      <Tab.Navigator>
+        {/* <Tab.Screen name="login" component={Login} /> */}
+        <Tab.Screen name="recipes" component={RecipesScreen} />
+      </Tab.Navigator>
+    )
+  }
+
   return (
       <NavigationContainer>
-        
+        <StatusBar backgroundColor={"rgba(217,4,41,1)"}/>
+          <Stack.Navigator screenOptions={{
+            headerShown: false,
+          }}>
+             <Stack.Screen name="login" component={Login} />
+             <Stack.Screen name="recipes" component={RecipesTabs} />
+          </Stack.Navigator>
       </NavigationContainer>
   );
 }

@@ -1,16 +1,24 @@
-import styled from "styled-components";
+import styled from "styled-components";      
+import { colors } from "../Contans";                           
 
-export const Title1 = styled.Text`
-    font-family: "roboto-black";
-    font-size: 30px;
-    color: #20315f;
+export const Title = styled.Text`
+    font-family: "inter-bold";
+    font-size: 24px;
+    color: ${colors.primary};
+    font-weight: bold;
 `;
 
-export const SubTitle1 = styled.Text`
-    font-family: "roboto-reg";
+export const SubTitle = styled.Text`
+    font-family: "inter-bold";
     text-align: center;
     margin: 6px 0;
     text-transform: uppercase;
     line-height: 20px;
-    color: #20315f;
+    color: ${colors.primary};
+`;
+
+export const BtnText = styled.Text`
+    color: ${colors.primary};
+    font-weight: bold;
+    font-size: 16px;
 `;
