@@ -35,8 +35,7 @@ const formReducer = (state, action) => {
     }
 }
 
-const Login = ({navigation}) => {
-
+const Login = ({ navigation}) => {
     const dispatchRecipe = useDispatch()
 
     const [ repState, dispatch ] = useReducer(formReducer, {
@@ -94,6 +93,9 @@ const Login = ({navigation}) => {
             </View>
             <View style={styles.btnContainer}>
                 <Button title="EXPLORE RECIPES" color={"red"} onPress={() => navigation.navigate("recipes")} />
+            </View>
+            <View style={styles.btnContainer}>
+                <Button title="LOGOUT" color={"orange"} onPress={() => navigation.navigate("auth")} />
             </View>
         </View>
     )

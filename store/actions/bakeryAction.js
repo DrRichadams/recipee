@@ -21,14 +21,19 @@ export const setRecipes = () => {
 }
 
 export const removeRecipe = (id) => {
-    return (dispatch) => {
+    return async dispatch => {
+        await fetch(`https://recipee-d8b19-default-rtdb.firebaseio.com/recipes/${id}.json`, {
+        method: "DELETE",
+    })
         dispatch({ type: REMOVE_RECIPE, payload: id })
     }
 }
 
 export const addNewRecipe = (data) => {
-    return async dispatch => {
-        const response = await fetch("https://recipee-d8b19-default-rtdb.firebaseio.com/recipes.json", {
+    return async (dispatch, getState) => {
+        const token = getState().auth.token
+        console.log(token)
+        const response = await fetch(`https://recipee-d8b19-default-rtdb.firebaseio.com/recipes.json?auth=${token}`, {
         method: "POST",
         headers: {
             'Content-Type': "application/json"
