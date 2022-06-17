@@ -21,8 +21,10 @@ export const setRecipes = () => {
 }
 
 export const removeRecipe = (id) => {
-    return async dispatch => {
-        await fetch(`https://recipee-d8b19-default-rtdb.firebaseio.com/recipes/${id}.json`, {
+    return async (dispatch, getState) => {
+        const token = getState().auth.token
+        console.log(token)
+        await fetch(`https://recipee-d8b19-default-rtdb.firebaseio.com/recipes/${id}.json?auth=${token}`, {
         method: "DELETE",
     })
         dispatch({ type: REMOVE_RECIPE, payload: id })

@@ -10,6 +10,7 @@ import authReducer from "./store/reducers/auth";
 import Login from "./screens/Login";
 import RecipesScreen from "./screens/RecipesScreen";
 import AuthScreen from "./screens/AuthScreen";
+import StartupScreen from "./screens/StartupScreen";
 
 const rootReducer = combineReducers({
     bakery: bakeryReducer,
@@ -24,6 +25,7 @@ export default function App() {
       <NavigationContainer>
         <StatusBar backgroundColor={"rgba(217,4,41,1)"}/>
           <Stack.Navigator screenOptions={{ headerShown: false }}>
+             <Stack.Screen name="startup" component={StartupScreen} />
              <Stack.Screen name="auth" component={AuthScreen} />
              <Stack.Screen name="login" component={Login} />
              <Stack.Screen name="recipes" component={RecipesScreen} />

@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View, TextInput, Button, TouchableOpacity, Alert, ActivityIndicator } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useDispatch } from 'react-redux';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import { signup, login } from '../store/actions/auth';
 
 const Input = props => <TextInput  style={styles.input} {...props} /> 
@@ -14,15 +16,10 @@ const AuthScreen = ({navigation}) => {
     const dispatch = useDispatch()
 
     const handleLoginEvent = async () => {
-        // console.log(authUsername)
-        // console.log(authPassword)
-        // navigation.navigate("login", {
-        //     username: authUsername,
-        //     password: authPassword
-        // })
         setisLoading(true)
         if(authUsername === '' && authPassword === '') {
             Alert.alert("Warning!", "Provide your credentials to log in.", [{text: "OK"}])
+            setisLoading(false)
             return
         }
         await dispatch(login(authUsername, authPassword))

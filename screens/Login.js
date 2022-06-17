@@ -2,6 +2,7 @@ import React, { useReducer } from "react"
 import { View, Text, StyleSheet, TextInput, Button, Alert } from "react-native"
 import { useDispatch } from "react-redux"
 import { addNewRecipe } from "../store/actions/bakeryAction"
+import { logout } from "../store/actions/auth"
 
 const Input = props => <TextInput  style={styles.input} {...props} /> 
 
@@ -95,7 +96,10 @@ const Login = ({ navigation}) => {
                 <Button title="EXPLORE RECIPES" color={"red"} onPress={() => navigation.navigate("recipes")} />
             </View>
             <View style={styles.btnContainer}>
-                <Button title="LOGOUT" color={"orange"} onPress={() => navigation.navigate("auth")} />
+                <Button title="LOGOUT" color={"orange"} onPress={() => {
+                    dispatch(logout)
+                    navigation.navigate("auth"); 
+                }} />
             </View>
         </View>
     )
