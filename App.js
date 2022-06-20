@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -12,6 +12,7 @@ import RecipesScreen from "./screens/RecipesScreen";
 import AuthScreen from "./screens/AuthScreen";
 import StartupScreen from "./screens/StartupScreen";
 import ImgPicker from "./components/ImagePicker";
+import { openDatabase } from "expo-sqlite";
 
 const rootReducer = combineReducers({
     bakery: bakeryReducer,

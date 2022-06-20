@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Image, Button } from "react-native";
 import * as ImagePicker from 'expo-image-picker';
 import * as FileSystem from 'expo-file-system';
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import * as Notifications from "expo-notifications"
 
 const ImgPicker = () => {
 
